@@ -1,0 +1,64 @@
+{% extends 'base.html' %}
+{% block title %}{{ title }}{% endblock title %}
+{% load crispy_forms_tags %}
+{% load static %}
+
+{% block content %}
+<div id="input-nav"><a href="{% url 'home' %}" class="primary1">Accueil</a> <i>&rsaquo;</i> Panneau d'administration</div>
+<!-- <br> -->
+<div class="title-1"><i class="fas fa-user-tie"></i>Panneau d'administration</div>
+<br>
+<br>
+{% if messages %}
+    {% for message in messages %}
+        {% if message.tags == 'error' %}
+            <div class="alert alert-danger">
+                <i class="fas fa-exclamation-circle"></i>{{ message }}
+            </div>
+        {% else %}
+            <div class="alert alert-success">
+                <i class="fas fa-check-circle"></i>{{ message }}
+            </div>
+        {% endif %}
+    {% endfor %}
+{% endif %}
+
+<!--
+<div class="admin-panel">
+    <div class="row">
+        <div class="col-md-6 p-5 bg-gradient-light">
+            Gérer<a class="btn btn-sm btn-secondary" href="{% url 'lecturer_list' %}"> Enseignants &raquo;</a>
+            <p><span>&LongRightArrow;</span> CRUD (Créer, Lire, Mettre à jour et Supprimer) des enseignants</p><hr>
+            Gérer<a class="btn btn-sm btn-secondary" href="{% url 'student_list' %}"> Étudiants &raquo;</a>
+            <p><span>&LongRightArrow;</span> CRUD (Créer, Lire, Mettre à jour et Supprimer) des étudiants</p><hr>
+            Gérer<a class="btn btn-sm btn-secondary" href="{% url 'session_list' %}"> Sessions &raquo;</a>
+            <p><span>&LongRightArrow;</span> CRUD (Créer, Lire, Mettre à jour et Supprimer) des sessions</p><hr>
+            Gérer<a class="btn btn-sm btn-secondary" href="{% url 'semester_list' %}"> Semestres &raquo;</a>
+            <p><span>&LongRightArrow;</span> CRUD (Créer, Lire, Mettre à jour et Supprimer) des semestres</p>
+        </div>
+        <div class="col-md-6 p-5 bg-gradient-light">
+            Ajout et suppression de cours
+            <label class="switch switch-text switch-success switch-pill" style="float: right;">
+              <input type="checkbox" class="switch-input" checked="true">
+              <span data-on="Activé" data-off="Désactivé" class="switch-label"></span>
+              <span class="switch-handle"></span>
+            </label>
+            <p><span>&LongRightArrow;</span> Basculer entre 
+                <i class="info-text bg-success">Activé</i> et <i class="info-text bg-danger">Désactivé</i>
+            </p><hr>
+
+            Gérer<a class="btn btn-sm btn-secondary" href="{% url 'programs' %}"> Programmes & Cours &raquo;</a>
+            <p><span>&LongRightArrow;</span> CRUD (Créer, Lire, Mettre à jour et Supprimer) des programmes</p>
+            <p><span>&LongRightArrow;</span> CRUD (Créer, Lire, Mettre à jour et Supprimer) des cours</p><hr>
+            Gérer<a class="btn btn-sm btn-secondary" href="{% url 'course_allocation_view' %}"> Affectations de cours &raquo;</a>
+            <p><span>&LongRightArrow;</span> CRUD (Créer, Lire, Mettre à jour et Supprimer) des affectations de cours</p><hr>
+            Gérer<a class="btn btn-sm btn-secondary" href="{% url 'home' %}"> Actualités & Événements &raquo;</a>
+            <p><span>&LongRightArrow;</span> CRUD (Créer, Lire, Mettre à jour et Supprimer) des actualités et des événements</p>
+        </div>
+    </div>
+</div>
+
+
+-->
+
+{% endblock %}
